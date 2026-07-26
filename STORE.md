@@ -9,11 +9,12 @@ dashboard rather than composing in the browser.
 
 **Name** — `Marlowe`
 
-> Check availability before you commit. "Marlowe" is a common product name
-> (there is at least one well-known AI writing tool using it). The store does
-> not enforce uniqueness, but a trademark complaint after launch means a forced
-> rename with your reviews attached to the old name. Alternatives that keep the
-> premise: `Marlowe Cat`, `The Understudy`, `Marlowe Writes`.
+> Search the store for "Marlowe" before you submit. The store does not enforce
+> uniqueness, and a trademark complaint after launch means renaming with your
+> reviews attached to the dead name. A personal name used for a cat character
+> is low risk, but there is a Marlowe in fintech and one in music software, so
+> confirm neither has an extension. If one does, `Marlowe Writes` keeps the
+> brand and clears the collision.
 
 **Category** — Fun. Not Productivity: it does not make you write more, it makes
 writing nicer, and reviewers read the category as a claim.
@@ -53,8 +54,11 @@ count anything typed in a password field. There is no server, no account, no
 analytics, and no network request of any kind. Everything he knows is a small
 number stored on your own computer.
 
-Free. Locations and outfits will be the only things ever sold, and the writing
-itself will never be one of them.
+Everything above is free. Rooms are the only thing that will ever be sold, and
+the writing itself will never be one of them.
+
+Your record is yours. The Study saves everything to a file you keep, and
+restores from one, because nothing syncs and uninstalling deletes it.
 ```
 
 ---
@@ -88,6 +92,7 @@ user's hidden-sites list and is only stored if the user turns that option on.
 
 - Host access (content script on `<all_urls>`)
 
+
 ```
 The cat is rendered as an overlay on the page the user is looking at, and the
 keystroke counter must run in the frame that has keyboard focus, so the content
@@ -105,9 +110,17 @@ no remotely hosted scripts, no CDN.
 - not being used for purposes unrelated to the item's single purpose
 - not being used to determine creditworthiness or for lending
 
-**Privacy policy URL** — must be publicly reachable before submission.
-`PRIVACY.md` in this repo is the text. Publish it at a stable URL (GitHub Pages
-on this repo is the least work) and paste that URL in.
+**Privacy policy URL** — the page is built and committed at `docs/index.html`.
+To publish it:
+
+1. `gh repo create marlowe --public --source . --push` (or push to a repo you
+   already made).
+2. Settings → Pages → Source: **Deploy from a branch**, branch `main`, folder
+   **/docs**.
+3. The URL is `https://<user>.github.io/marlowe/`. Paste it into the listing.
+
+`docs/.nojekyll` is there so Pages serves the file as-is instead of running it
+through Jekyll.
 
 ---
 
@@ -116,18 +129,19 @@ on this repo is the least work) and paste that URL in.
 | Asset | Size | Required | Status |
 |---|---|---|---|
 | Store icon | 128×128 PNG | yes | done, `public/icon/128.png` |
-| Screenshots | 1280×800 or 640×400, 1 to 5 | yes, at least 1 | **not done** |
-| Small promo tile | 440×280 PNG | no, but drives discovery | **not done** |
+| Screenshots | 1280×800, 1 to 5 | yes, at least 1 | done, `store/1-4*.png` |
+| Small promo tile | 440×280 PNG | no, but drives discovery | done, `store/promo-440x280.png` |
 | Marquee tile | 1400×560 PNG | no, featured placement only | skip for v1 |
 
-Screenshot plan, in listing order. The first one is the only one most people
-see:
+Upload the four in `store/` in filename order; the first is the only one most
+people look at. They are cropped from real captures by `assets/storeshots.py`,
+which holds the crop boxes, so re-running it after a UI change reproduces them.
+Put fresh captures in `assets/raw/` under the same filenames.
 
-1. The cat sitting on a real page mid-sentence, caption "he writes when you do"
-2. The Study, lamplit, full page
-3. The shelf close up, with a spine hovered
-4. The post, one letter still sealed
-5. The popup open over a page, showing "hide him on this site"
+Worth reshooting before submitting: the Study captures are from a nearly empty
+profile, so the shelf is bare and the post is empty. Write for a week, or seed
+storage, and shot 2 gains a shelf of books and a sealed letter — which is the
+whole pitch.
 
 ---
 
@@ -144,6 +158,7 @@ see:
 - [ ] Type in Google Docs and confirm the count moves
 - [ ] Type in a password field and confirm it does not
 - [ ] Two tabs typing at once, confirm no keystrokes are lost
+- [ ] Export a backup, uninstall, reinstall, restore — confirm the record returns
 - [ ] Version bumped to `1.0.0` in `package.json`
 - [ ] `npm run zip` and check the artifact is under the 10 MB store limit
 
