@@ -111,16 +111,26 @@ no remotely hosted scripts, no CDN.
 - not being used to determine creditworthiness or for lending
 
 **Privacy policy URL** — the page is built and committed at `docs/index.html`.
-To publish it:
+Publishing it is three commands. `gh auth login` is interactive, so it cannot be
+scripted:
 
-1. `gh repo create marlowe --public --source . --push` (or push to a repo you
-   already made).
-2. Settings → Pages → Source: **Deploy from a branch**, branch `main`, folder
-   **/docs**.
-3. The URL is `https://<user>.github.io/marlowe/`. Paste it into the listing.
+```sh
+gh auth login
+gh repo create marlowe --public --source . --remote origin --push
+gh api -X POST repos/{owner}/marlowe/pages   -f 'source[branch]=main' -f 'source[path]=/docs'
+```
 
-`docs/.nojekyll` is there so Pages serves the file as-is instead of running it
-through Jekyll.
+The URL is then `https://<user>.github.io/marlowe/`; it takes a minute or two to
+go live. Paste it into the listing's Privacy policy field.
+
+**The repo has to be public.** GitHub Pages on a private repo requires a paid
+plan, and the store will not accept a policy URL it cannot reach. If you would
+rather not publish the source, put `docs/index.html` in its own small public
+repo and keep this one private.
+
+`docs/.nojekyll` is there so Pages serves the file as-is rather than running it
+through Jekyll, which would ignore any file or directory starting with an
+underscore.
 
 ---
 
