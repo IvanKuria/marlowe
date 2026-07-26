@@ -1,0 +1,79 @@
+/*
+ * The Study.
+ *
+ * The page is a room at night with ONE light source: his desk lamp, up and to
+ * the left. Everything else falls off from it. That single device is what makes
+ * the page read as a place rather than a dashboard, and it is also true — he is
+ * up late working.
+ *
+ * Deliberately NOT a card grid, not hairline borders, not a cream page with a
+ * serif display and a terracotta accent. The previous version had all of those
+ * and read as generated rather than drawn.
+ */
+
+:root {
+  /* the room */
+  --night: #1e181c;
+  --night2: #140f13;
+  --warm: #2c2226;
+  --wood: #4a3830;
+
+  /* the lamp */
+  --lamp: #ffcb7e;
+  --lampdeep: #e39247;
+
+  /* paper as it looks under a lamp at night, not under a scanner */
+  --paper: #e9dabb;
+  --paper2: #d8c49f;
+  --ink: #3b2e26;
+  --ink2: #6e5b4c;
+
+  /* type on the dark */
+  --text: #e0cdb6;
+  --text2: #9b8574;
+  --text3: #8d7868;
+
+  /* the returned-manuscript red. Never decorative. */
+  --brick: #a9604f;
+
+  --serif: Georgia, 'Bookman Old Style', 'Iowan Old Style', serif;
+  --sans: Candara, 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+  --data: Consolas, 'SF Mono', ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--night2);
+}
+
+body {
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Focus has to survive on a dark ground, so it is the lamp colour. */
+:focus-visible {
+  outline: 2px solid var(--lamp);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

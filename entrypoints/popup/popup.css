@@ -1,0 +1,218 @@
+/*
+ * Popup styling.
+ *
+ * Same room, smaller: one warm light source top-left, everything falling off
+ * from it. Deliberately plain CSS rather than Svelte — a popup is judged on
+ * how fast it paints, and this one has no state worth a framework.
+ */
+:root {
+  --night: #1e181c;
+  --night2: #140f13;
+  --warm: #2c2226;
+  --lamp: #ffcb7e;
+  --lampdeep: #e39247;
+  --paper: #e9dabb;
+  --text: #e0cdb6;
+  --text2: #9b8574;
+  --text3: #6e5c51;
+  --serif: Georgia, 'Bookman Old Style', serif;
+  --sans: Candara, 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 292px;
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--night2);
+  -webkit-font-smoothing: antialiased;
+}
+
+.pane {
+  padding: 18px 18px 15px;
+  background:
+    radial-gradient(300px 220px at 22% 6%, rgba(255, 203, 126, 0.17), transparent 66%),
+    linear-gradient(165deg, var(--warm) 0%, var(--night) 52%, var(--night2) 100%);
+}
+
+/* ---------- header ---------- */
+.head {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.cat {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 17px;
+  margin: 0;
+  color: #f4e6cf;
+}
+
+.who p {
+  margin: 1px 0 0;
+  font-size: 13px;
+  color: var(--text2);
+}
+
+/* ---------- current work ---------- */
+.work {
+  margin-top: 16px;
+}
+
+.title {
+  font-family: var(--serif);
+  font-size: 15px;
+  margin: 0 0 8px;
+  color: #f0e1c9;
+}
+
+.chapters {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 15px;
+}
+
+.chapters i {
+  display: block;
+  width: 9px;
+  height: 12px;
+  border-radius: 1px;
+  background: rgba(233, 218, 187, 0.13);
+}
+
+.chapters i.done {
+  background: var(--paper);
+}
+
+.chapters i.here {
+  background: var(--lamp);
+  height: 15px;
+}
+
+.chap {
+  margin: 7px 0 0;
+  font-size: 12.5px;
+  color: var(--text3);
+}
+
+/* ---------- the one button ---------- */
+.open {
+  display: block;
+  width: 100%;
+  margin: 16px 0 4px;
+  padding: 9px 12px;
+  font: inherit;
+  font-family: var(--serif);
+  font-size: 14.5px;
+  color: #2a1f16;
+  background: linear-gradient(180deg, var(--lamp), var(--lampdeep));
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  transition: filter 140ms ease;
+}
+
+.open:hover {
+  filter: brightness(1.07);
+}
+
+.open:focus-visible {
+  outline: 2px solid var(--lamp);
+  outline-offset: 2px;
+}
+
+/* ---------- controls ---------- */
+.controls {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(233, 218, 187, 0.1);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 13.5px;
+  color: var(--text2);
+  cursor: pointer;
+}
+
+.row input {
+  accent-color: var(--lampdeep);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.row.motion {
+  cursor: default;
+  padding-top: 8px;
+}
+
+.seg {
+  display: flex;
+  border-radius: 3px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.seg button {
+  font: inherit;
+  font-size: 12px;
+  padding: 4px 9px;
+  border: none;
+  background: transparent;
+  color: var(--text3);
+  cursor: pointer;
+}
+
+.seg button[aria-checked='true'] {
+  background: rgba(255, 203, 126, 0.16);
+  color: var(--lamp);
+}
+
+.seg button:focus-visible {
+  outline: 2px solid var(--lamp);
+  outline-offset: -2px;
+}
+
+.whisper {
+  margin: 14px 0 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--text3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cat {
+    animation: none !important;
+  }
+}

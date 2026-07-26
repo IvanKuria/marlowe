@@ -1,0 +1,10 @@
+{
+  "extends": "./.wxt/tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": false,
+    "verbatimModuleSyntax": true
+  },
+  "include": ["**/*.ts", "**/*.svelte", ".wxt/**/*"],
+  "exclude": ["node_modules", ".output"]
+}

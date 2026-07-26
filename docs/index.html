@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marlowe — Privacy</title>
+    <meta
+      name="description"
+      content="Marlowe counts that you typed. It never records what you typed. No server, no account, no analytics."
+    />
+    <link rel="icon" href="icon.png" />
+    <style>
+      :root {
+        --night: #1e181c;
+        --night2: #140f13;
+        --warm: #2c2226;
+        --lamp: #ffcb7e;
+        --lampdeep: #e39247;
+        --paper: #e9dabb;
+        --text: #e0cdb6;
+        --text2: #9b8574;
+        --text3: #8d7868;
+        --serif: Georgia, 'Bookman Old Style', serif;
+        --sans: Candara, 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; background: var(--night2); }
+      body {
+        font-family: var(--sans);
+        font-size: 17px;
+        line-height: 1.7;
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+      }
+      .room {
+        min-height: 100vh;
+        padding: 72px 28px 96px;
+        background:
+          radial-gradient(700px 520px at 22% 10%, rgba(255, 203, 126, 0.18), transparent 62%),
+          linear-gradient(165deg, var(--warm) 0%, var(--night) 46%, var(--night2) 100%);
+      }
+      main { max-width: 660px; margin: 0 auto; }
+      .mark { display: flex; align-items: center; gap: 14px; margin-bottom: 34px; }
+      .mark img { width: 56px; height: 56px; border-radius: 12px; }
+      .mark p { margin: 0; font-size: 13.5px; color: var(--text3); }
+      .mark strong {
+        display: block;
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: 20px;
+        color: #f6e9d2;
+      }
+      h1 {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: clamp(30px, 5vw, 40px);
+        line-height: 1.2;
+        margin: 0 0 10px;
+        color: #f6e9d2;
+        text-wrap: balance;
+      }
+      .dek { font-family: var(--serif); font-style: italic; color: var(--text2); margin: 0 0 8px; }
+      .stamp { font-size: 13.5px; color: var(--text3); margin: 0 0 40px; }
+      h2 {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: 21px;
+        color: #f0e1c9;
+        margin: 44px 0 10px;
+      }
+      p, li { color: var(--text); }
+      a { color: var(--lampdeep); }
+      a:hover { color: var(--lamp); }
+      ul { padding-left: 20px; }
+      li { margin-bottom: 8px; }
+      code {
+        font-family: Consolas, ui-monospace, monospace;
+        font-size: 0.9em;
+        background: rgba(233, 218, 187, 0.1);
+        padding: 1px 5px;
+        border-radius: 3px;
+      }
+      .short {
+        background: linear-gradient(180deg, var(--paper), #d8c49f);
+        color: #3b2e26;
+        padding: 22px 26px;
+        border-radius: 2px;
+        transform: rotate(-0.4deg);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.42);
+        margin: 0 0 8px;
+      }
+      .short p { color: #3b2e26; margin: 0; font-family: var(--serif); font-size: 18px; }
+      .short p + p { margin-top: 10px; }
+      footer {
+        margin-top: 56px;
+        padding-top: 22px;
+        font-size: 14px;
+        color: var(--text3);
+        border-top: 1px solid rgba(233, 218, 187, 0.12);
+      }
+      :focus-visible { outline: 2px solid var(--lamp); outline-offset: 3px; }
+    </style>
+  </head>
+  <body>
+    <div class="room">
+      <main>
+        <div class="mark">
+          <img src="icon.png" alt="" width="56" height="56" />
+          <p><strong>Marlowe</strong>a cat who writes a novel out of your typing</p>
+        </div>
+
+        <h1>Privacy</h1>
+        <p class="dek">The short version is the whole version.</p>
+        <p class="stamp">Last updated 26 July 2026</p>
+
+        <div class="short">
+          <p>Marlowe counts <b>that</b> you typed. He never records <b>what</b> you typed.</p>
+          <p>
+            Nothing leaves your computer. There is no server, no account, no analytics, and no
+            network request of any kind.
+          </p>
+        </div>
+
+        <h2>What it reads</h2>
+        <p>
+          Marlowe adds a keyboard listener to the pages you visit. For every key press it does
+          exactly one thing: it adds <code>1</code> to a counter.
+        </p>
+        <p>
+          It does not read which key was pressed. It does not read the contents of any field, page,
+          form, or document. The character is discarded inside the event handler and is never
+          stored, compared, buffered, or transmitted. Key presses inside password fields are not
+          counted at all.
+        </p>
+
+        <h2>What it stores</h2>
+        <p>
+          Everything Marlowe knows is kept in <code>chrome.storage.local</code> on your own
+          computer:
+        </p>
+        <ul>
+          <li>a running count of key presses, and the word total derived from it</li>
+          <li>the title, genre and chapter number of the imaginary book in progress</li>
+          <li>the list of imaginary books already finished</li>
+          <li>imaginary letters from imaginary readers</li>
+          <li>your settings: where the cat sits, which sites you have hidden him on, your movement preference, and whether he is switched on</li>
+          <li>a list of calendar dates on which you wrote at least one word, used to show a streak</li>
+        </ul>
+        <p>
+          No page URLs, page titles, page contents, form contents, or typed characters are stored.
+        </p>
+
+        <h2>What it sends</h2>
+        <p>
+          Nothing. Marlowe makes no network requests and has no backend. All artwork, code and data
+          ship inside the extension package and stay on your machine.
+        </p>
+
+        <h2>Permissions, and why each exists</h2>
+        <ul>
+          <li>
+            <code>storage</code> — to keep the counts and settings above on your own computer.
+          </li>
+          <li>
+            <code>activeTab</code> — when you click the Marlowe toolbar icon, the popup reads the
+            current tab's hostname so it can offer "hide him on this site". The hostname is used
+            only for that comparison, and stored only if you turn the option on.
+          </li>
+          <li>
+            <b>Access to the sites you visit</b> — the cat has to be drawn on the page you are
+            looking at, and the key counter has to run wherever your keyboard focus is. Used for
+            those two things only.
+          </li>
+        </ul>
+
+        <h2>Data sharing and sale</h2>
+        <p>
+          There is none. No data is collected, so there is nothing to share, sell, or transfer, and
+          no third party has access to anything.
+        </p>
+
+        <h2>Your copy, and deleting it</h2>
+        <p>
+          The Study has a <b>Keeping it</b> section that saves everything to a JSON file you own,
+          and restores from one. Keep a copy: removing the extension from Chrome deletes its
+          storage along with it, and nothing syncs between machines.
+        </p>
+
+        <h2>Children</h2>
+        <p>
+          Marlowe is suitable for all ages and does not collect personal information from anyone,
+          including children.
+        </p>
+
+        <h2>Changes</h2>
+        <p>
+          Any update to this policy is published at this same address with a new date above. A
+          change to what the extension reads or stores would ship as a new version with its own
+          review.
+        </p>
+
+        <h2>Contact</h2>
+        <p><a href="mailto:ikuria@ucsc.edu">ikuria@ucsc.edu</a></p>
+
+        <footer>He counts that you typed. He never sees what.</footer>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marlowe</title>
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <main class="pane">
+      <header class="head">
+        <div class="cat" id="cat" aria-hidden="true"></div>
+        <div class="who">
+          <h1>Marlowe</h1>
+          <p id="today">reading…</p>
+        </div>
+      </header>
+
+      <section class="work">
+        <p class="title" id="title">&nbsp;</p>
+        <div class="chapters" id="chapters"></div>
+        <p class="chap" id="chap">&nbsp;</p>
+      </section>
+
+      <button class="open" id="open">Open the study</button>
+
+      <section class="controls">
+        <label class="row">
+          <span id="hideLabel">Hide him on this site</span>
+          <input type="checkbox" id="mute" />
+        </label>
+        <label class="row">
+          <span>Turn him off everywhere</span>
+          <input type="checkbox" id="off" />
+        </label>
+        <div class="row motion">
+          <span>Movement</span>
+          <div class="seg" role="radiogroup" aria-label="Movement">
+            <button type="button" data-motion="auto" role="radio" aria-checked="false">auto</button>
+            <button type="button" data-motion="full" role="radio" aria-checked="false">full</button>
+            <button type="button" data-motion="reduced" role="radio" aria-checked="false">calm</button>
+          </div>
+        </div>
+      </section>
+
+      <p class="whisper">He counts that you typed. He never sees what.</p>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

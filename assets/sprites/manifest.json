@@ -1,0 +1,86 @@
+{
+  "armchair": {
+    "sheet": "sprites/armchair.png",
+    "frames": 24,
+    "frameSize": 176,
+    "durationMs": 1008,
+    "playback": "alternate"
+  },
+  "desk": {
+    "sheet": "sprites/desk.png",
+    "frames": 24,
+    "frameSize": 176,
+    "durationMs": 1008,
+    "playback": "alternate"
+  },
+  "armchair-idle": {
+    "sheet": "sprites/armchair-idle.png",
+    "frames": 24,
+    "frameSize": 176,
+    "durationMs": 1008,
+    "playback": "alternate"
+  },
+  "armchair-sleep": {
+    "sheet": "sprites/armchair-sleep.png",
+    "frames": 24,
+    "frameSize": 176,
+    "durationMs": 1008,
+    "playback": "alternate"
+  },
+  "desk-idle": {
+    "sheet": "sprites/desk-idle.png",
+    "frames": 24,
+    "frameSize": 176,
+    "durationMs": 1008,
+    "playback": "alternate"
+  },
+  "desk-sleep": {
+    "sheet": "sprites/desk-sleep.png",
+    "frames": 24,
+    "frameSize": 176,
+    "durationMs": 1008,
+    "playback": "alternate"
+  },
+  "hearth": {
+    "sheet": "sprites/hearth.png",
+    "frames": 24,
+    "frameSize": 176,
+    "durationMs": 1008,
+    "playback": "alternate"
+  },
+  "window": {
+    "sheet": "sprites/window.png",
+    "frames": 24,
+    "frameSize": 176,
+    "durationMs": 1008,
+    "playback": "alternate"
+  },
+  "window-idle": {
+    "sheet": "sprites/window-idle.png",
+    "frames": 24,
+    "frameSize": 176,
+    "durationMs": 1008,
+    "playback": "alternate"
+  },
+  "window-sleep": {
+    "sheet": "sprites/window-sleep.png",
+    "frames": 24,
+    "frameSize": 176,
+    "durationMs": 1008,
+    "playback": "alternate"
+  },
+  "hearth-idle": {
+    "sheet": "sprites/hearth-idle.png",
+    "frames": 24,
+    "frameSize": 176,
+    "durationMs": 1008,
+    "playback": "alternate"
+  },
+  "hearth-sleep": {
+    "sheet": "sprites/hearth-sleep.png",
+    "frames": 24,
+    "frameSize": 176,
+    "durationMs": 1008,
+    "playback": "alternate"
+  }
+}

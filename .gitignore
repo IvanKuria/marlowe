@@ -1,0 +1,17 @@
+node_modules
+.output
+.wxt
+stats.html
+stats-*.json
+*.log
+*.zip
+
+# Pipeline intermediates. The sheets (assets/sprites/<name>.png) and
+# manifest.json ARE committed: they are the shipped artwork, and regenerating
+# them costs credits and re-rolls the sampler, so they must never be treated as
+# reproducible build output. The per-frame PNGs and base64 dumps are derivable
+# from the sheets and exist only for inspection.
+assets/sprites/*-[0-9][0-9].png
+assets/sprites/*.frames.json
+
+test/*.png

@@ -1,0 +1,26 @@
+{
+  "name": "marlowe",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A cat that writes a novel out of your keystrokes.",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox",
+    "zip": "wxt zip",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "postinstall": "wxt prepare"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.287",
+    "@wxt-dev/module-svelte": "^2.0.3",
+    "playwright-core": "^1.62.0",
+    "puppeteer-core": "^25.3.0",
+    "svelte": "^5.19.0",
+    "svelte-check": "^4.1.4",
+    "typescript": "^5.7.3",
+    "wxt": "^0.20.0"
+  }
+}
